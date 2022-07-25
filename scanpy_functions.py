@@ -75,7 +75,7 @@ def paga(cells, colors, color_id, skip_umap):
 		scc = None
 	
 	#PAGA
-	sc.tl.paga(cells, groups='seurat_clusters')
+	sc.tl.paga(cells, groups=color_id)
 	sc.pl.paga_compare(cells, save = '_umap_%s.png' % (color_id), edge_width_scale=1, solid_edges = 'connectivities_tree', dashed_edges = 'connectivities', palette = scc, size = 8)
 	sc.pl.paga_compare(cells, save = '_phate_%s.png' % (color_id), edge_width_scale=1, solid_edges = 'connectivities_tree', dashed_edges = 'connectivities', palette = scc, size = 8, basis = 'phate')
 	os.system('mv paga_compare_umap_%s.png PAGA/paga_compare_umap_%s.png' % (color_id, color_id))
